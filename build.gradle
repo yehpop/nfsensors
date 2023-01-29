@@ -8,7 +8,7 @@ sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
 group "net.teamnf"
-//version gitVersion()
+version gitVersion()
 
 // Maven/Jitpack configuration
 task sourcesJar(type: Jar, dependsOn: classes) {
@@ -21,11 +21,21 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
-//install {
-//	doLast {
-//		System.out.println("Installing with version " + gitVersion())
-//	}
-//}
+tasks.register('install') {
+	doLast {
+		System.out.println("Installing with version " + gitVersion())
+	}
+}
+
+javadoc {
+    options {
+        links "https://docs.oracle.com/en/java/javase/11/docs/api/"
+    }
+    options.addStringOption("doctitle", "NF-SENSORS API")
+    options.addStringOption("windowtitle", "NF-SENSORS API")
+    options.addBooleanOption("-allow-script-in-comments", true)
+    options.addBooleanOption('Xdoclint:all,-missing', true)
+}
 
 artifacts {
     archives sourcesJar
