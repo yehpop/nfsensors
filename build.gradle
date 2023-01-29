@@ -79,6 +79,14 @@ test {
 wpi.sim.addGui().defaultEnabled = true
 wpi.sim.addDriverstation()
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+		from components.java
+        }
+    }
+}
+
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
 // in order to make them all available at runtime. Also adding the manifest so WPILib
 // knows where to look for our Robot Class.
@@ -94,4 +102,10 @@ wpi.java.configureTestTasks(test)
 // Configure string concat to always inline compile
 tasks.withType(JavaCompile) {
     options.compilerArgs.add '-XDstringConcat=inline'
+}
+
+
+wrapper {
+    gradleVersion = "7.2"
+    distributionType = Wrapper.DistributionType.ALL
 }
