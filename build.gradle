@@ -82,7 +82,10 @@ wpi.sim.addDriverstation()
 publishing {
     publications {
         maven(MavenPublication) {
-		from components.java
+            groupId 'net.teamnf.sensors'
+            artifactId 'nf-sensors'
+
+		    from components.java
         }
     }
 }
