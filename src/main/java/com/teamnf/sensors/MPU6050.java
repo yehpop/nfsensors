@@ -3,7 +3,7 @@
  * This file is part of nf-sensors.
  * Copyright (C) 2023 Yüşa Furkan Erenci, Tuna Gül
  */
-package net.teamnf.sensors;
+package com.teamnf.sensors;
 
 import java.nio.ByteBuffer;
 import java.lang.Math;

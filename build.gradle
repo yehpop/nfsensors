@@ -10,7 +10,7 @@ apply plugin: "maven-publish"
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
-group "net.teamnf.sensors"
+group "com.teamnf"
 version gitVersion()
 
 // Maven/Jitpack configuration
@@ -82,7 +82,7 @@ wpi.sim.addDriverstation()
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'net.teamnf.sensors'
+            groupId 'com.teamnf'
             artifactId 'nf-sensors'
 
 		    from components.java
