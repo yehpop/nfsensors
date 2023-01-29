@@ -1,5 +1,6 @@
 plugins {
     id "java"
+    id "maven-publish"
     id "edu.wpi.first.GradleRIO" version "2023.2.1"
     id "com.palantir.git-version" version "0.12.2"
 }
@@ -9,6 +10,12 @@ targetCompatibility = JavaVersion.VERSION_11
 
 group "net.teamnf"
 version gitVersion()
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {url "https://jitpack.io"}
+}
 
 // Maven/Jitpack configuration
 task sourcesJar(type: Jar, dependsOn: classes) {

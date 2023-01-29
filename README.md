@@ -20,7 +20,7 @@ dependencies {
 }
 ```
 
-# LICENSING
+# Licensing
 
 ## Definitions.
 
