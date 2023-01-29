@@ -1,3 +1,25 @@
+# Installation
+
+nf-sensors is hosted on JitPack and only available through the Gradle build system. First, add JitPack
+to your root build.gradle at the end of `repositories`:
+
+```groovy
+allprojects {
+    repositories {
+        // ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+And then add the dependency:
+
+```groovy
+dependencies {
+    implementation 'com.github.teamnf:nf-sensors:master-SNAPSHOT'
+}
+```
+
 # LICENSING
 
 ## Definitions.
