@@ -3,11 +3,6 @@ import org.gradle.internal.os.OperatingSystem
 pluginManagement {
     repositories {
         mavenLocal()
-        mavenCentral()
-        maven {
-        name "JitPack"
-        url "https://jitpack.io/"
-        }
         gradlePluginPortal()
         String frcYear = '2023'
         File frcHome

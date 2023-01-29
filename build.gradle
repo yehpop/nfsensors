@@ -13,12 +13,6 @@ targetCompatibility = JavaVersion.VERSION_11
 group "net.teamnf"
 version gitVersion()
 
-repositories {
-    mavenCentral()
-    jcenter()
-    maven {url "https://jitpack.io"}
-}
-
 // Maven/Jitpack configuration
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
