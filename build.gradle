@@ -10,7 +10,7 @@ apply plugin: "maven-publish"
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
-group "com.teamnf"
+group "com.teamnf.nf-vision"
 version gitVersion()
 
 // Maven/Jitpack configuration
@@ -22,12 +22,6 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
-}
-
-tasks.register('install') {
-	doLast {
-		System.out.println("Installing with version " + gitVersion())
-	}
 }
 
 javadoc {
@@ -45,21 +39,11 @@ artifacts {
     archives javadocJar
 }
 
-// Set to true to use debug for JNI.
-wpi.java.debugJni = false
-
-// Set this to true to enable desktop support.
-def includeDesktopSupport = true
-
 // Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
 // Also defines JUnit 5.
 dependencies {
     implementation wpi.java.deps.wpilib()
     implementation wpi.java.vendor.java()
-
-    nativeDebug wpi.java.deps.wpilibJniDebug(wpi.platforms.desktop)
-    nativeDebug wpi.java.vendor.jniDebug(wpi.platforms.desktop)
-    simulationDebug wpi.sim.enableDebug()
 
     nativeRelease wpi.java.deps.wpilibJniRelease(wpi.platforms.desktop)
     nativeRelease wpi.java.vendor.jniRelease(wpi.platforms.desktop)
@@ -82,8 +66,9 @@ wpi.sim.addDriverstation()
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'com.teamnf'
-            artifactId 'nf-sensors'
+            groupId 'com.teamnf.nf-sensors'
+            artifactId 'sensors'
+            version gitVersion()
 
 		    from components.java
         }
@@ -93,14 +78,14 @@ publishing {
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
 // in order to make them all available at runtime. Also adding the manifest so WPILib
 // knows where to look for our Robot Class.
-jar {
-    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
-}
+//jar {
+//    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+//    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+//}
 
 // Configure jar and deploy tasks
-wpi.java.configureExecutableTasks(jar)
-wpi.java.configureTestTasks(test)
+//wpi.java.configureExecutableTasks(jar)
+//wpi.java.configureTestTasks(test)
 
 // Configure string concat to always inline compile
 tasks.withType(JavaCompile) {
