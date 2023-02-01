@@ -26,5 +26,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'nf-sensors'
+rootProject.name = 'sensors'
 include('lib')
