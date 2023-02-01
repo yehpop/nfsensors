@@ -62,8 +62,8 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId 'com.github.yehpop'
-            artifactId 'sensors'
-            version 'v0.1.4'
+            artifactId 'nfsensors'
+            version 'v0.1.5'
 
 		    from components.java
         }
