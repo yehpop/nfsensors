@@ -3,7 +3,7 @@
  * This file is part of nf-sensors.
  * Copyright (C) 2023 Yüşa Furkan Erenci, Tuna Gül
  */
-package com.github.yehpop.sensors;
+package com.github.yehpop.nfsensors;
 
 import java.nio.ByteBuffer;
 import java.lang.Math;
