@@ -63,7 +63,7 @@ publishing {
         maven(MavenPublication) {
             groupId 'com.github.yehpop'
             artifactId 'nfsensors'
-            version 'v0.1.5'
+            version gitVersion()
 
 		    from components.java
         }
