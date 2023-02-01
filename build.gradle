@@ -61,7 +61,7 @@ tasks.named('test') {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'com.teamnf.sensors'
+            groupId 'com.github.yehpop'
             artifactId 'sensors'
             version gitVersion()
 
